@@ -49,7 +49,8 @@ public class Estacionamento {
                     switch (entrada) {
                         case 1:
                             System.out.println("Digite os dados do carro para a vaga: ");
-                            System.out.println("Placa: ");
+                            carro = new Veiculos();
+                            System.out.println("Placa: ");                            
                             carro.setPlaca(ler.nextLine());
                             System.out.println("Modelo: ");
                             carro.setModelo(ler.nextLine());
@@ -64,6 +65,7 @@ public class Estacionamento {
                             break;
                         case 2:
                             System.out.println("Digite os dados da moto !");
+                            moto = new Veiculos();
                             System.out.println("Placa: ");
                             moto.setPlaca(ler.nextLine());
                             System.out.println("Modelo: ");
@@ -79,6 +81,7 @@ public class Estacionamento {
                             break;
                         case 3:
                             System.out.println("Digite os dados do onibus !");
+                            onibus = new Veiculos();
                             System.out.println("Placa: ");
                             onibus.setPlaca(ler.nextLine());
                             System.out.println("Modelo: ");
