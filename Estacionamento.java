@@ -29,6 +29,7 @@ public class Estacionamento {
         int qtdMotos = 0;
         int qtdOnibus = 0;
         int menu;
+        int saida;
 
         Veiculos carro = new Veiculos();
         Veiculos moto = new Veiculos();
@@ -101,25 +102,40 @@ public class Estacionamento {
                 case 2:
                     System.out.println("Saida de veiculos");
                     System.out.println("1- Carro \n 2- Moto \n 3- Onibus");
-                    int saida = ler.nextInt();
-                    switch (saida) {
+                    menu = ler.nextInt();
+                    switch (menu) {
                         case 1:
                             System.out.println("Carro removido da vaga: ");
-                            System.out.println(vagas.remove(saida));
-                            qtdVeiculos--;
-                            qtdCarros--;
+                            saida = ler.nextInt();
+                            if (saida <= qtdVeiculos) {
+                                System.out.println(vagas.remove(saida).modelo);
+                                qtdVeiculos--;
+                                qtdCarros--;
+                            } else {
+                                System.out.println("Esta vaga não esta ocupada");
+                            }
                             break;
                         case 2:
                             System.out.println("Moto removida da vaga: ");
-                            System.out.println(vagas.remove(saida));
-                            qtdVeiculos--;
-                            qtdMotos--;
+                            saida = ler.nextInt();
+                            if (saida <= qtdVeiculos) {
+                                System.out.println(vagas.remove(saida).modelo);
+                                qtdVeiculos--;
+                                qtdMotos--;
+                            } else {
+                                System.out.println("Esta vaga não esta ocupada");
+                            }
                             break;
                         case 3:
                             System.out.println("Onibus removido da vaga: ");
-                            System.out.println(vagas.remove(saida));
-                            qtdVeiculos--;
-                            qtdOnibus--;
+                            saida = ler.nextInt();
+                            if (saida <= qtdVeiculos) {
+                                System.out.println(vagas.remove(saida).modelo);
+                                qtdVeiculos--;
+                                qtdOnibus--;
+                            } else {
+                                System.out.println("Esta vaga não esta ocupada");
+                            }
                             break;
                     }
 
@@ -141,22 +157,18 @@ public class Estacionamento {
 
                 case 4:
                     System.out.println("Consulta geral do estacionamento");
-                    if (qtdVeiculos < vagas.size()) {
-                        for (int i = 0; i < vagas.size(); i++) {
-                            System.out.println("Vaga " + i + ": " + vagas.get(i).modelo);
-                        }
-                    } else {
-                        System.out.println("Esta vaga não esta ocupada");
+                    for (int i = 0; i < vagas.size(); i++) {
+                        System.out.println("Vaga " + i + ": " + vagas.get(i).modelo);
                     }
-
                     break;
 
                 case 5:
                     System.out.println("Saindo do sistema.");
                     break;
-
+                    
+                default:
+                    System.out.println("Opção invalida");
             }
         } while (menu != 5);
     }
-
 }
