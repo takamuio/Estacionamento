@@ -14,7 +14,6 @@ Em algum momento também deverá ser possível retornar estatística da estacion
 Mostrando quantos veículos de cada tipo existem estacionados
  */
 
-import static java.nio.file.Files.size;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -121,7 +120,7 @@ public class Estacionamento {
                             System.out.println(vagas.remove(saida));
                             qtdVeiculos--;
                             qtdOnibus--;
-                            break;                        
+                            break;
                     }
 
                     if (qtdVeiculos == 0) {
@@ -132,25 +131,31 @@ public class Estacionamento {
                 case 3:
                     System.out.println("Consultar à vaga: ");
                     int consulta = ler.nextInt();
-                    if (consulta <= qtdVeiculos){
+                    if (consulta <= qtdVeiculos) {
                         System.out.println(vagas.get(consulta).modelo);
                     } else {
                         System.out.println("Esta vaga não esta ocupada");
                     }
-                    
+
                     break;
 
                 case 4:
                     System.out.println("Consulta geral do estacionamento");
-                    for (int i = 0; i < vagas.size(); i++) {
-                        System.out.println("Vaga " + i + ": " + vagas.get(i).modelo);
+                    if (qtdVeiculos < vagas.size()) {
+                        for (int i = 0; i < vagas.size(); i++) {
+                            System.out.println("Vaga " + i + ": " + vagas.get(i).modelo);
+                        }
+                    } else {
+                        System.out.println("Esta vaga não esta ocupada");
                     }
+
                     break;
 
                 case 5:
                     System.out.println("Saindo do sistema.");
-            }
+                    break;
 
+            }
         } while (menu != 5);
     }
 
