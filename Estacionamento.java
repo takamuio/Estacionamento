@@ -108,19 +108,20 @@ public class Estacionamento {
                             System.out.println("Carro removido da vaga: ");
                             System.out.println(vagas.remove(saida));
                             qtdVeiculos--;
+                            qtdCarros--;
                             break;
                         case 2:
                             System.out.println("Moto removida da vaga: ");
                             System.out.println(vagas.remove(saida));
                             qtdVeiculos--;
+                            qtdMotos--;
                             break;
                         case 3:
                             System.out.println("Onibus removido da vaga: ");
                             System.out.println(vagas.remove(saida));
                             qtdVeiculos--;
-                            break;
-                        default:
-                            break;
+                            qtdOnibus--;
+                            break;                        
                     }
 
                     if (qtdVeiculos == 0) {
